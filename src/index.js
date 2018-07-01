@@ -1,6 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
-const db = require(path.join(__dirname, '..', 'db', 'models', 'index.js'));
+const db = require(path.join(__dirname, '..', 'models', 'index.js'));
 
 dotenv.config();
 
