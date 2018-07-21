@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const entities = sequelize.define('entities', {
+  const columns = {
     name: {
       unique: 'geo',
       allowNull: false,
@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-  }, {});
+  };
+  if (process.env.DB_DIALECT === 'sqlite') delete columns.geo;
+  const entities = sequelize.define('entities', columns, {});
   entities.associate = (models) => {
     entities.hasMany(models.zoo_data, { foreignKey: 'entity_id' });
     entities.hasMany(models.temple_data, { foreignKey: 'entity_id' });
