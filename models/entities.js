@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
   entities.associate = (models) => {
     entities.hasMany(models.zoo_data, { foreignKey: 'entity_id' });
     entities.hasMany(models.temple_data, { foreignKey: 'entity_id' });
-    entities.hasMany(models.manholemap_data, { foreignKey: 'entity_id' });
+    entities.hasMany(models.manhole_data, { foreignKey: 'entity_id' });
   };
   return entities;
 };
